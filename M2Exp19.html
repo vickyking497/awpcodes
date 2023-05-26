@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Text nodes example</title>
+    <script>
+        function wrapTextWithItalic() {
+            var paragraph = document.getElementById("my-paragraph");
+            var childNodes = paragraph.childNodes;
+            for (var i = 0; i < childNodes.length; i++) {
+                if (childNodes[i].nodeType === Node.TEXT_NODE) {
+                    var italic = document.createElement("i");
+                    childNodes[i].parentNode.insertBefore(italic, childNodes[i]);
+                    italic.appendChild(childNodes[i]);
+                }
+            }
+        }
+    </script>
+</head>
+<body style="background-color: darkkhaki;">
+    <h1>Text nodes example</h1>
+    <p id="my-paragraph">This is a <strong>paragraph</strong> with some <em>italic</em> and <u>underlined</u> text.</p>
+    <button onclick="wrapTextWithItalic()">Wrap text nodes with italic tags</button>
+</body>
+</html>

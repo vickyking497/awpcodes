@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mouse position example</title>
+    <script>
+        function getMousePosition(event) {
+            var x = event.clientX;
+            var y = event.clientY;
+            var docX = document.documentElement.scrollLeft + x;
+            var docY = document.documentElement.scrollTop + y;
+            document.getElementById("coords").innerHTML = "Mouse position: (" + docX + ", " + docY + ")";
+        }
+    </script>
+</head>
+<body style="background-image: url(https://t4.ftcdn.net/jpg/05/21/18/03/360_F_521180377_2iAVJqBQSo3cgKaVp8vMBR8asrC61DoU.jpg);background-repeat: no-repeat;background-size: cover;" onmousemove="getMousePosition(event)">
+    <h1 style="color: blueviolet;" id="coords">Mouse position: (0, 0)</h1>
+</body>
+</html>

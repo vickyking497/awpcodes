@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation Example</title>
+    <script>
+        function validateForm() {
+            var name = document.forms["myForm"]["name"].value;
+            var email = document.forms["myForm"]["email"].value;
+            var phone = document.forms["myForm"]["phone"].value;
+            if (name == "") {
+                alert("Name must be filled out");
+                return false;
+            }
+            if (email == "" || !/\S+@\S+\.\S+/.test(email)) {
+                alert("Email must be filled out in correct format");
+                return false;
+            }
+            if (phone == "" || !/^\d{10}$/.test(phone)) {
+                alert("Phone must be filled out in 10 digits format");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGay1hHxxYQ4I0EkPd9QP3ClO0xlwvD_VEsg&usqp=CAU);  background-repeat: no-repeat;
+background-size: cover;">
+    <h2 style="color: blueviolet;font: 1em sans-serif ;font-size: xx-large;">Form Validation Example</h2>
+    <form name="myForm" onsubmit="return validateForm()">
+        <label style="color: cadetblue;" for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        
+        <label style="color: cadetblue;" for="email">Email:</label>
+        <input type="email" id="email" name="email"><br><br>
+        
+        <label style="color: cadetblue;"  for="phone">Phone:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]{10}"><br><br>
+        
+        <input style="color: cadetblue;" type="submit" value="Submit">
+    </form>
+</body>
+</html>

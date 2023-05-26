@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Click event example</title>
+    <script>
+        var startClickTime = 0;
+        
+        function handleClick() {
+            if (startClickTime === 0) {
+                startClickTime = new Date().getTime();
+            } else {
+                var endClickTime = new Date().getTime();
+                var duration = endClickTime - startClickTime;
+                document.getElementById("duration").innerHTML = "Time between clicks: " + duration + " milliseconds";
+                startClickTime = 0;
+            }
+        }
+    </script>
+</head>
+<body style="background-image: url(https://t4.ftcdn.net/jpg/05/21/18/03/360_F_521180377_2iAVJqBQSo3cgKaVp8vMBR8asrC61DoU.jpg);background-repeat: no-repeat;background-size: cover;">
+    <h1 style="color: darkgoldenrod;" id="duration">Time between clicks: 0 milliseconds</h1>
+    <p  style="color: darkmagenta ; font-size: xx-large;" onclick="handleClick()">Click on this paragraph twice to measure the time between clicks.</p>
+</body>
+</html>
+
